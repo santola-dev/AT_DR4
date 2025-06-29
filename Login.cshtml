@@ -1,0 +1,13 @@
+﻿@page
+@model LoginModel
+<form method="post">
+    <label>Usuário:</label>
+    <input type="text" name="username" />
+    <label>Senha:</label>
+    <input type="password" name="password" />
+    <button type="submit">Login</button>
+</form>
+@if (Model.ErroLogin != null)
+{
+    <p style="color:red;">@Model.ErroLogin</p>
+}

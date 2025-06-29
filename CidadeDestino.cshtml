@@ -1,0 +1,23 @@
+﻿@page
+@model AT.Pages.CreateCidadeDestinoModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h3>Cadastrar Cidade de Destino</h3>
+
+<form method="post">
+    <div>
+        <label asp-for="CidadeDestino.Nome"></label>
+        <input asp-for="CidadeDestino.Nome" />
+        <span asp-validation-for="CidadeDestino.Nome" class="text-danger"></span>
+    </div>
+    <button type="submit">Cadastrar</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.Resultado))
+{
+    <p style="color: green;">@Model.Resultado</p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,17 @@
+﻿@page "{id:int}"
+@model AT.Pages.ClienteDetailsModel
+
+<h2>Detalhes do Cliente</h2>
+
+@if (Model.ClienteSelecionado != null)
+{
+    <ul>
+        <li><strong>ID:</strong> @Model.ClienteSelecionado.Id</li>
+        <li><strong>Nome:</strong> @Model.ClienteSelecionado.Nome</li>
+        <li><strong>Email:</strong> @Model.ClienteSelecionado.Email</li>
+    </ul>
+}
+else
+{
+    <p style="color:red;">Cliente não encontrado.</p>
+}

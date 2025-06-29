@@ -1,0 +1,38 @@
+﻿@page
+@model AT.Pages.VerNotasModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h3>Criar nova anotação</h3>
+
+<form method="post">
+    <textarea asp-for="Conteudo" rows="5" cols="60" placeholder="Escreva sua anotação aqui..."></textarea>
+    <br />
+    <button type="submit">Salvar</button>
+</form>
+
+<hr />
+
+<h3>Arquivos salvos:</h3>
+
+@if (Model.ArquivosDisponiveis.Length == 0)
+{
+    <p>Nenhuma anotação encontrada.</p>
+}
+else
+{
+    <ul>
+        @foreach (var arquivo in Model.ArquivosDisponiveis)
+        {
+            <li>
+                <a asp-page="./ViewNotes" asp-route-ArquivoSelecionado="@arquivo">@arquivo</a>
+            </li>
+        }
+    </ul>
+}
+
+@if (!string.IsNullOrEmpty(Model.ConteudoArquivo))
+{
+    <hr />
+    <h2>Conteúdo de @Model.ArquivoSelecionado</h2>
+    <pre style="background-color: #f2f2f2; padding: 10px;">@Model.ConteudoArquivo</pre>
+}
