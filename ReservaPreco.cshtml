@@ -1,0 +1,27 @@
+﻿@page
+@using AT.Delegates_Eventos
+@model AT.Delegates_Eventos.ReservaPrecoModel
+
+
+
+
+<h3>Simular valor total da reserva</h3>
+
+<form method="post">
+    <div>
+        <label>Quantidade de pessoas:</label>
+        <input asp-for="QuantidadePessoas" type="number" />
+    </div>
+    <div>
+        <label>Preço por pessoa:</label>
+        <input asp-for="PrecoPorPessoa" type="number" step="0.01" />
+    </div>
+    <button type="submit">Calcular</button>
+</form>
+
+@if (Model.ValorTotal > 0)
+{
+    <p style="color: green;">
+        Valor total da reserva: R$ @Model.ValorTotal
+    </p>
+}
